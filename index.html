@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Ananta Jaya Persada - Solusi Transformasi Digital</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #0052D4;
+            --secondary-color: #4364F7;
+            --dark-color: #1a1a2e;
+            --light-color: #f4f7f6;
+            --text-color: #333;
+            --white-color: #ffffff;
+        }
+
+        /* General Styling & Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header and Navigation */
+        .header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section with Animated Gradient & Typing Effect */
+        #hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white-color);
+            height: 90vh;
+            padding: 0 5%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), #673ab7, #00BCD4);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .typing-effect {
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+          from { width: 0 }
+          to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+          from, to { border-color: transparent }
+          50% { border-color: orange; }
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            overflow: hidden; /* For scroll animations */
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            bottom: -10px;
+            left: 20%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .section p, .section .about-content {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 2rem auto 0 auto;
+        }
+
+        /* Service Cards with Hover Effect */
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .card {
+            background-color: var(--white-color);
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 82, 212, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        #contact form {
+            max-width: 700px;
+            margin: 50px auto 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        form input, form textarea {
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        form input:focus, form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 82, 212, 0.2);
+        }
+
+        /* Buttons */
+        .cta-button {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--white-color);
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 82, 212, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 82, 212, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 30px 5%;
+        }
+        
+        /* Scroll Animation - Reveal Class */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <a href="#" class="logo">AJP</a>
+            <ul>
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1 class="typing-effect">#NavigateYourNext</h1>
+                <p>Setiap transformasi adalah langkah selanjutnya untuk bisnismu. Kami membantu Anda membangun arsitektur proses digital untuk fase pertumbuhan Anda berikutnya.</p>
+                <a href="#services" class="cta-button">Jelajahi Layanan Kami</a>
+            </div>
+        </section>
+
+        <section id="about" class="section reveal">
+            <h2 class="section-title">Tentang Kami</h2>
+            <p class="about-content">
+                Dengan pendekatan vendor-agnostik dan independen, PT Ananta Jaya Persada adalah mitra terpadu untuk semua kebutuhan transformasi digital Anda. Kami membantu perusahaan anda untuk mengimplementasikan dan mengoptimalisasikan sistem bisnis anda (seperti ERP, CRM, WMS, dan lainnya). Dengan rekam jejak lebih dari 20+ proyek sukses, AJP memiliki posisi unik untuk memandu pertumbuhan bisnis Anda.
+            </p>
+        </section>
+
+        <section id="services" class="section">
+            <h2 class="section-title reveal">Layanan Unggulan Kami</h2>
+            <div class="service-cards">
+                <div class="card reveal">
+                    <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3>Business & Tech Advisory</h3>
+                    <p>Mulai dari rekayasa ulang proses bisnis, manajemen perubahan, hingga dukungan audit untuk efisiensi maksimal.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h3>Enterprise Resource Planning (ERP)</h3>
+                    <p>Layanan konsultasi menyeluruh mulai dari pemilihan, implementasi, hingga pemulihan proyek ERP Anda.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3>Supply Chain Optimization</h3>
+                    <p>Transformasi rantai pasokan, arsitektur teknologi, dan optimalisasi logistik untuk keunggulan kompetitif.</p>
+                </div>
+                 <div class="card reveal">
+                    <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                    <h3>Organizational Change</h3>
+                    <p>Kami membantu Anda menavigasi "masalah orang" dalam transformasi digital untuk memastikan transisi yang mulus.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="section-title reveal">Siap Bertransformasi?</h2>
+            <p class="reveal">Hubungi kami hari ini untuk konsultasi dan mari kita wujudkan langkah besar Anda selanjutnya.</p>
+            <form class="reveal">
+                <input type="text" name="name" placeholder="Nama Lengkap Anda" required>
+                <input type="email" name="email" placeholder="Alamat Email Anda" required>
+                <textarea name="message" rows="6" placeholder="Ceritakan kebutuhan Anda..." required></textarea>
+                <button type="submit" class="cta-button">Kirim Pesan</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PT Ananta Jaya Persada. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Form submission alert (Contoh sederhana)
+            const form = document.querySelector('#contact form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
+                form.reset();
+            });
+
+            // Scroll Reveal Animation
+            function reveal() {
+                var reveals = document.querySelectorAll('.reveal');
+
+                for (var i = 0; i < reveals.length; i++) {
+                    var windowHeight = window.innerHeight;
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    var elementVisible = 100; // Jarak elemen dari bawah layar untuk mulai animasi
+
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add('active');
+                    } else {
+                        // Optional: Hapus class untuk animasi berulang setiap kali scroll
+                        // reveals[i].classList.remove('active');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', reveal);
+            reveal(); // Panggil sekali saat load untuk elemen yang sudah terlihat
+        });
+    </script>
+</body>
+</html>
